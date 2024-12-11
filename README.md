@@ -3,9 +3,9 @@
 
 Primarily written for research, Shrike recursively searches the `C:\` directory for DLLs that have RWX sections ('mockingjays'), and provides an analysis of:
 
-    - RWX memory region size(s)
-    - Architecture of the DLL
-    - If the DLL is signed or not
+- RWX memory region size(s)
+- Architecture of the DLL
+- If the DLL is signed or not
 
 Includes capabilities to load, and inject shellcode into a discovered 'mockingjay' DLL if one is suitable for injection.
 Shellcode is specified at compile-time and is stored XOR'd in the binary until injection phase (if shrike was compiled with the `-d:inject` flag)
