@@ -9,6 +9,21 @@ Primarily written for research, Shrike recursively searches the `C:\` directory 
 Includes capabilities to load, and inject shellcode into a discovered 'mockingjay' DLL if one is suitable for injection.
 Shellcode is specified at compile-time and is stored XOR'd in the binary until injection phase (if shrike was compiled with the `-d:inject` flag)
 
+```
+↑↑↑↑↑↑↑↑↑↑↑↑↑↑   ↑↑↑↑ ↑↑↑↑↑↑↑↑↑↑ ↑↑↑↑↑ ↑↑↑↑  ↑↑↑  ↑↑↑↑↑↑↑↑↑
+ ↑↑↑↑↑↑↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑↑↑↑↑↑↑  ↑↑↑   ↑↑↑ ↑↑↑   ↑↑↑↑↑↑↑↑↑
+ ↑↑↑   ↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑  ↑↑↑↑  ↑↑↑   ↑↑↑↑↑↑    ↑↑↑   ↑↑↑
+ ↑↑↑↑↑   ↑  ↑↑↑   ↑↑↑   ↑↑↑  ↑↑↑↑  ↑↑↑  ↑↑↑↑↑↑↑↑↑  ↑↑↑↑↑↑
+    ↑↑↑↑↑  ↑↑↑↑↑↑↑↑↑↑   ↑↑↑ ↑↑↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑ ↑↑↑↑↑↑
+ ↑↑    ↑↑↑  ↑↑↑↑↑↑↑↑↑  ↑↑↑↑↑↑↑↑↑↑↑ ↑↑↑   ↑↑↑   ↑↑↑ ↑↑↑   ↑↑↑
+ ↑↑↑   ↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑   ↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑ ↑↑↑   ↑↑↑
+ ↑↑↑ ↑↑↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑   ↑↑↑  ↑↑↑   ↑↑↑   ↑↑↑ ↑↑↑  ↑↑↑↑
+ ↑↑↑↑↑↑↑    ↑↑↑   ↑↑↑   ↑↑↑   ↑↑↑  ↑↑↑   ↑↑↑   ↑↑  ↑↑↑↑↑↑↑
+ ↑↑↑↑↑      ↑↑↑    ↑↑         ↑↑↑  ↑↑↑   ↑↑↑       ↑↑↑↑↑
+ ↑↑↑        ↑↑↑               ↑↑↑  ↑↑↑   ↑↑↑       ↑↑↑
+ ↑          ↑                   ↑  ↑     ↑         ↑
+```
+
 ## Building
 Shrike is distributed as a nimble package - as long as a proper nim build environment is present `nimble build -d:analysis` from this projects root directory should install missing dependencies and build Shrike in analysis mode. Shrike takes advantage of Nim's compile-time VM to exclude functionality that is not desired based on build flags - in other words, if you use the `-d:silent` flag, print statements and there corresponding strings will never make it to the gcc-backend and thus not be present in the compiled binary. All user options are defined as build flags at compile-time.
 
