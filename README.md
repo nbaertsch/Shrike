@@ -2,6 +2,7 @@
  Hunting for and injecting RWX 'mockingjay' DLLs in pure nim.
 
 Primarily written for research, Shrike recursively searches the `C:\` directory for DLLs that have RWX sections ('mockingjays'), and provides an analysis of:
+
     - RWX memory region size(s)
     - Architecture of the DLL
     - If the DLL is signed or not
